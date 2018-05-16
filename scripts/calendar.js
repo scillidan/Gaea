@@ -1,34 +1,40 @@
-function Desamber(str)
-{
-  this.str = str;
-  this.year = parseInt(`20${str.substr(0,2)}`);
+//msec per calendar day       = 86400000
+//orbital period in msec      = 365.2564 * 86400000 = 31558152960 https://en.wikipedia.org/wiki/Kepler%27s_laws_of_planetary_motion
+//msec in orbital day (deg)   = 31558152960 / 360 = 87661536
 
-  this.toString = function()
-  {
-    return this.str;
-  }
+function Orbit()
+{
+  var orbit = 31558152960;
+  var span  = 70;
+  var birth = new Date('11 11 1988 15:50:00 GMT+10');
+  var today = new Date();
+
+  var life  = today-birth;
+  var death = new Date(Date.parse(birth) + Date.parse(new Date(orbit * span)));
+  var year  = life % orbit;
+
+  this.y = life / orbit;
+  this.m = life / (orbit / 12) % 12;
+  this.d = life / 87661536 % 30;
+  this.t = life % 87661536;
+  this.s = life % 87661.536;
+  this.ms = life % 8766.1536;
+  this.mms = life % 876.61536;
+  this.dd = (today - death) / 87661536;
+
+  return this.y, this.m, this.d, this.t, this.s, this.ms, this.mms, this.dd;
 }
 
-Date.prototype.desamber = function()
+Date.prototype.gaea = function()
 {
-  var start = new Date(this.getFullYear(), 0, 0);
-  var diff = (this - start) + ((start.getTimezoneOffset() - this.getTimezoneOffset()) * 60 * 1000);
-  var doty = Math.floor(diff/86400000);
-  var y = this.getFullYear().toString().substr(2,2);
-  var m = String.fromCharCode(97 + Math.floor(((doty-1)/364) * 26)).toUpperCase(); m = doty == 365 || doty == 366 ? "+" : m;
-  var d = (doty % 14); d = d < 10 ? `0${d}` : d; d = d == "00" ? "14" : d; d = doty == 365 ? "01" : (doty == 366 ? "02" : d);
-  return new Desamber(`${y}${m}${d}`);
+  orbit = new Orbit();
+  this.y = Math.floor(orbit.y);
+  this.m = Math.ceil(orbit.m) < 10 ? `0${Math.ceil(orbit.m)}` : Math.ceil(orbit.m);
+  this.d = Math.ceil(orbit.d) < 10 ? `0${Math.ceil(orbit.d)}` : Math.ceil(orbit.d);
+  return {y:this.y, m:this.m, d:this.d};
 }
 
 function Calendar()
 {
-  this.toString = function()
-  {
-    return new Date().desamber().toString();
-  }
-
-  this.menu = function()
-  {
-    return {label: this.toString(), enabled: false};
-  }
+  return new Date().gaea();
 }
