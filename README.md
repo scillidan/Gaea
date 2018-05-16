@@ -1,4 +1,4 @@
-<img src='PREVIEW.jpg'/>
+<img src='/PREVIEW.gif'/>
 
 # Gaea
 
