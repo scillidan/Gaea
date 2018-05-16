@@ -1,32 +1,17 @@
-# Clock
+<img src='/PREVIEW.jpg'/>
 
-Clock is a small widget displaying [decimal time](http://wiki.xxiivv.com/desamber) with automatic reminders to stand, drink and [rest your hands](https://en.wikipedia.org/wiki/Repetitive_strain_injury).
+# Gaea
 
-## Beats
+[Gaea](https://en.wikipedia.org/wiki/Gaia) is a personal timepiece and life-time keeping device based on Earth's [orbital period](https://en.wikipedia.org/wiki/Orbital_period). It indicates years, months, days and current time in Gaea format.
 
-The clock has **two groups of 3 digits**, called the `beat` and the `pulse`. For example, **Noon** is `500:000`, **6AM** is `250:000` and **6PM** is `750:000`. In the decimal format, the shortest pulse equals to **8.64 milliseconds**, the second shortest **86.4** and so on. 
+## Format
 
-`1 beat, or 1000 pulses` is equivalent to **86.4 seconds**, or about 1m44s. This app includes a [Pomodoro timer](https://en.wikipedia.org/wiki/Pomodoro_Technique) to do a singular focused work lasting `30 beats`, or **25.92 minutes**.
+Gaea calendar starts with your birth timestamp in Gregorean format and moves in sync with the Earth from then. Each day corresponds to 1 angular degree around the Sun. A year has **12 months**, **30 days** each and as such, doesn't respect Gregorean calendar days and is out of phase with day/night cycles.
+There are no hours or minutes in Gaea, a day lasts `360` units, which is equal to `87661536` milliseconds.
+Year index is zero-based.
 
-```
-1 beat = 86.4 seconds
-1 second = 1.157 beats
-```
+## Etc.
 
-## Preview
-
-<img src='https://raw.githubusercontent.com/hundredrabbits/Clock/master/PREVIEW.jpg'/>
-
-## Build
-
-Install [npm](https://docs.npmjs.com/getting-started/installing-node), download dependencies and start Clock with:
-
-```
-npm install
-npm run build_osx
-```
-
-## Extras
-
-- Support this project through [Patreon](https://patreon.com/100).
+- See the live view [here](http://nomand.github.io/Gaea).
+- Originally concieved as [Clock](https://github.com/hundredrabbits/Clock) for [**Desamber**](https://wiki.xxiivv.com/#desamber) by [@neauoire](https://github.com/neauoire) of [Hundred Rabbits])(http://100r.co/).
 - See the [License](LICENSE.md) file for license rights and limitations (MIT).
