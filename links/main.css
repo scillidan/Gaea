@@ -29,4 +29,3 @@ body { background:black; overflow: hidden; width:800px;}
 #gaea { width:100vw; height:100vh; }
 #gaea path { fill:none; stroke:white; }
 #gaea text { fill:red; }
-#help { position: absolute; width: 15px; font-family:input_mono_regular; font-size: 14px; text-align: center; color: #000; background-color: #3a3a3a; margin:12px; user-select: none; }
