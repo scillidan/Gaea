@@ -6,7 +6,7 @@ function Orbit()
 {
   var orbit = 31558152960;
   var span  = 70;
-  var birth = new Date('11 11 1988 15:50:00 GMT+10');
+  var birth = new Date('10 13 1992 00:00:00 GMT+8');
   var today = new Date();
 
   var life  = today-birth;
